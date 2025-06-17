@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instagram Profil</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Story -->
+    <div class="story-ring-wrapper" id="storyWrapper">
+      <img src="./pic/dwnld.jpg" alt="Profil rasmi" class="avatar" id="storyImage" />
+    </div>
+
+    <!-- Profil Info -->
+    <div class="info">
+      <div class="top-row">
+        <h1>editor_of_football</h1>
+        <span class="badge">✔</span>
+      </div>
+      <div class="actions">
+        <button class="follow">Follow</button>
+        <button class="message">Message</button>
+      </div>
+      <div class="stats">
+        <span><strong>98</strong> posts</span>
+        <span>
+          <strong id="followersCount" style="cursor: pointer;">5,841</strong> followers
+        </span>
+        <span>
+          <strong id="followingCount" style="cursor: pointer;">421</strong> following
+        </span>
+      </div>
+      <p class="bio">
+        Shambilov Akmal<br/>
+        <span class="username">@editor_of_football</span><br/>
+      </p>
+    </div>
+  </div>
+
+  <!-- Chat box -->
+  <div class="chat-box hidden">
+    <div class="messages"></div>
+    <div class="input-row">
+      <input type="text" id="chatInput" placeholder="Xabar yozing..." />
+      <button id="sendBtn">Yuborish</button>
+    </div>
+  </div>
+
+  <!-- Story Modal -->
+  <div class="story-modal hidden" id="storyModal">
+    <img src="./pic/story1.jpg" alt="Story rasmi" />
+  </div>
+
+  <!-- Followers Modal -->
+<div class="followers-modal hidden" id="followersModal">
+  <button class="close-btn" onclick="closeModal('followersModal')">❌</button>
+  <h3>Followers</h3>
+  <ul id="followersList"></ul>
+</div>
+
+<!-- Following Modal -->
+<div class="following-modal hidden" id="followingModal">
+  <button class="close-btn" onclick="closeModal('followingModal')">❌</button>
+  <h3>Following</h3>
+  <ul id="followingList"></ul>
+</div>
+
+  <script src="main.js"></script>
+</body>
+</html>

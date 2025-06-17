@@ -1,0 +1,441 @@
+body {
+  background-color: #000;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  gap: 70px;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  padding: 3px;
+  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+
+.avatar.viewed {
+  background: #262626;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.top-row h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.badge {
+  color: #0095f6;
+  font-size: 18px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.follow {
+  padding: 10px 20px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.follow.active {
+  background-color: #262626;
+}
+
+.message {
+  background-color: #262626;
+  color: white;
+}
+
+.stats {
+  display: flex;
+  gap: 32px;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.stats span strong {
+  font-size: 15px;
+}
+
+.bio {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+.username {
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* CHAT box */
+.chat-box {
+  width: 300px;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 15px;
+  border-radius: 8px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.chat-box .messages {
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 14px;
+  background-color: #222;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 6px 8px;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  color: white;
+}
+
+#sendBtn {
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Story modal */
+.story-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 500px;
+  background-color: #000;
+  border: 2px solid white;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.story-modal img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+/* Followers modal */
+.followers-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 9999;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+/* Following modal */
+.following-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 9999;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+.following-modal h3 {
+  margin-top: 0;
+  text-align: center;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#followingList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#followingList li {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+  font-size: 14px;
+}
+
+
+.followers-modal h3 {
+  margin-top: 0;
+  text-align: center;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#followersList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#followersList li {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+  font-size: 14px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Responsive: 768px dan kichik ekranlar (mobil) uchun */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .top-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .top-row h1 {
+    font-size: 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  button, .follow, .message {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .bio, .username {
+    text-align: center;
+  }
+
+  .chat-box {
+    width: 90%;
+    bottom: 20px;
+    right: 5%;
+  }
+
+  .story-modal {
+    width: 90%;
+    height: auto;
+  }
+
+  .followers-modal,
+  .following-modal {
+    width: 90%;
+    max-height: 70vh;
+  }
+}
+
+@media (max-width: 300px) {
+  body {
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .top-row h1 {
+    font-size: 18px;
+  }
+
+  .badge {
+    font-size: 14px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  button, .follow, .message {
+    width: 100%;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  .stats span strong {
+    font-size: 13px;
+  }
+
+  .bio, .username {
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .chat-box {
+    width: 95%;
+    right: 2.5%;
+    bottom: 10px;
+    padding: 10px;
+  }
+
+  .chat-box .messages {
+    max-height: 100px;
+    font-size: 12px;
+  }
+
+  .input-row input {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  #sendBtn {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .story-modal {
+    width: 95%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .followers-modal,
+  .following-modal {
+    width: 95%;
+    max-height: 60vh;
+    padding: 15px;
+  }
+
+  .followers-modal h3,
+  .following-modal h3 {
+    font-size: 16px;
+  }
+
+  #followersList li,
+  #followingList li {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .close-btn {
+    font-size: 16px;
+    top: 6px;
+    right: 8px;
+  }
+}
